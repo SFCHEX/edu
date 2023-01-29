@@ -8,8 +8,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return render(request,'ewp/about.html')
 
 
 def home(request):
-    return HttpResponse('<h1>HOME PAGE</h1>')
+    return render(request, 'ewp/home.html')
