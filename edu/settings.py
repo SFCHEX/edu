@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'courses.apps.CoursesConfig',
     'ewp.apps.EwpConfig',  # our app's config
     'django.contrib.admin',
     'django.contrib.auth',
