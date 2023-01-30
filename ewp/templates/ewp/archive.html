@@ -7,7 +7,7 @@
         <ul>
         {% for course in Courses%}
             <li><a style="font-size: x-large" href="/ewp/{{ course.id }}/">{{ course.title }}</a></li>
-            <li>{{ course.content }}</li>
+            <p>{{ course.content }}</p>
         {% endfor %}
         </ul>
         {% else %}
