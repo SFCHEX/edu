@@ -6,7 +6,7 @@ urlpatterns = [
     # ex: /courses/
     path('', views.mainpage, name='mainpage'),
     # ex: /courses/5/
-    path('/<int:course_id>', views.course, name='course'),
+    path('<int:course_id>', views.course, name='course'),
 ]
 
 

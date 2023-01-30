@@ -1,11 +1,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-
+from django.contrib.auth.models import User
 # class attatchment is what we'll use to attatch content to our lectures or topics. enumerated type so we know how to embed later.
 
 
 class Course(models.Model):
     Name=models.CharField(max_length=255)
+    creator= models.ForeignKey(User, on_delete=models.PROTECT)
     Description=models.TextField()
     date_added=models.DateField()
 
