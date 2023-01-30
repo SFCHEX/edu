@@ -16,4 +16,3 @@ def home(request):
 
 def login(request):
     return render(request, 'ewp/login.html')
-
