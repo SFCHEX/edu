@@ -1,0 +1,17 @@
+
+{%extends "ewp/base.html"%}
+{%block content%}
+
+    <h1>Archive</h1>
+        {% if Courses %}
+        <ul>
+        {% for course in Courses%}
+            <li><a style="font-size: x-large" href="/ewp/{{ course.id }}/">{{ course.title }}</a></li>
+            <li>{{ course.content }}</li>
+        {% endfor %}
+        </ul>
+        {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+    
+{%endblock content%}
