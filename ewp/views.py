@@ -1,11 +1,17 @@
 from django.shortcuts import render
+
+# Create your views here.
+from django.shortcuts import render
+
+# Create your views here.
+from django.http import HttpResponse
 from django.views.generic import (
     ListView,
     CreateView,
     UpdateView,
     DeleteView
 )
-from .models import Course
+from courses.models import Course
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 
 
@@ -28,7 +34,7 @@ class CourseListView(ListView):
 
 class CourseCreateView(LoginRequiredMixin,CreateView):
     model = Course
-    fields = ['title','content']
+    fields = ['Name','creator','Description','date_added','Content']
 
     def form_valid(self,form):
         form.instance.author = self.request.user
@@ -37,7 +43,7 @@ class CourseCreateView(LoginRequiredMixin,CreateView):
 
 class CourseUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Course
-    fields = ['title', 'content']
+    fields = ['Name','creator','Description','date_added','Content']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -45,7 +51,7 @@ class CourseUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     
     def test_func(self):
         course= self.get_object()
-        if self.request.user == course.author:
+        if self.request.user == course.creator:
             return True
         return False
 
@@ -55,6 +61,6 @@ class CourseDeletView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         course = self.get_object()
-        if self.request.user == course.author:
+        if self.request.user == course.creator:
             return True
         return False
