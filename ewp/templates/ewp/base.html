@@ -30,6 +30,7 @@
         </ul>
         {% if user.is_authenticated %}
           <div class="navbar-nav ml-auto">
+            <a class = "nav-item nav-link ml-auto" href="{% url 'course-create' %}">Create Course</a>
           <a class = "nav-item nav-link ml-auto" href="{% url 'profile' %}">Profile</a>
           <a class = "nav-item nav-link ml-auto" href="{% url 'logout' %}">Logout</a>
         </div>
