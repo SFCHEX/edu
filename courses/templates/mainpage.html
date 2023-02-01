@@ -1,0 +1,37 @@
+{%extends "ewp/base.html"%}
+{%load static%}
+{%block content%}
+
+<link rel="stylesheet" href="{%static 'ewp/courses.css' %}">
+<header>
+</header>
+
+
+<div class="courses">
+
+{% for Course in Courses %}
+<a class="card-link" href="{% url 'courses:course' Course.id%}">
+        <div class="course-card">
+
+                <span class="course-banner">
+                        
+                </span>
+        
+                <div class="course-details">
+                        <div class="course-name">{{Course.Name}}</div>
+                        <div class="course-date">{{Course.date_added}}</div>
+                        <div class="course-institution">{{Course.Institution.Name}}</div>
+                        <div class="course-description">{{Course.Description}}</div>
+                </div>
+        </div>
+</a>
+{% endfor %}
+
+<footer>
+
+</footer>
+
+
+
+
+{%endblock content%}

@@ -1,0 +1,69 @@
+
+
+
+.courses{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+
+}
+
+.course-card{
+    padding: 100px 30px 30px 30px;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    margin: 20px  15px;
+    position: relative;
+    height: 300px;
+    width: 250px;
+    text-align: center;
+
+    
+}
+
+
+.course-name{
+    font-size: 1.5em;
+    font-weight: bold;
+    color:#7496b5;
+}
+
+.course-institution{
+    font-size: 1.1em;
+    font-weight: bold;
+    color:#575757;
+}
+
+
+.course-institution{
+    font-weight: bold;
+    color:#575757;
+}
+.course-description{
+    color:#575757;
+}
+
+.course-date{
+    color:#575757;
+}
+
+a.card-link:link {
+  text-decoration: none;
+}
+
+a.card-link:visited {
+  text-decoration: none;
+}
+
+a.card-link:hover {
+  text-decoration: none;
+}
+
+a.card-link:active {
+  text-decoration: none;
+}
+
+
+
+
+
