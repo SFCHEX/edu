@@ -34,7 +34,7 @@ class CourseListView(ListView):
 
 class CourseCreateView(LoginRequiredMixin,CreateView):
     model = Course
-    fields = ['Name','creator','Description','date_added','Content']
+    fields = ['Name','Description','Content']
 
     def form_valid(self,form):
         form.instance.author = self.request.user
