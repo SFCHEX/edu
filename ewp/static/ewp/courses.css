@@ -14,8 +14,8 @@
     border-radius: 4px;
     margin: 20px  15px;
     position: relative;
-    min-height: 300px;
-    min-width: 250px;
+    height: 300px;
+    width: 250px;
     text-align: center;
 
     
@@ -39,7 +39,29 @@
     font-weight: bold;
     color:#575757;
 }
+.course-description{
+    color:#575757;
+}
 
+.course-date{
+    color:#575757;
+}
+
+a.card-link:link {
+  text-decoration: none;
+}
+
+a.card-link:visited {
+  text-decoration: none;
+}
+
+a.card-link:hover {
+  text-decoration: none;
+}
+
+a.card-link:active {
+  text-decoration: none;
+}
 
 
 

@@ -10,7 +10,7 @@
 <div class="courses">
 
 {% for Course in Courses %}
-<a href="{% url 'courses:course' Course.id%}">
+<a class="card-link" href="{% url 'courses:course' Course.id%}">
         <div class="course-card">
 
                 <span class="course-banner">
