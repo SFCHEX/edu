@@ -3,7 +3,6 @@
 {%block content%}
 
 <link rel="stylesheet" href="{%static 'ewp/courses.css' %}">
-<header>
 
 
 <div class="course-info">
@@ -22,11 +21,7 @@
 
 
 
-
-</header>
-<div class="courses">
-
-{% for Topic in Course.CourseContent %}
+{% for Topic in Course.Content.all %}
         <div class="topic-card">
                         <div class="topic-name">{{Topic.Name}}</div>
                         <div class="topic-description">{{Topic.Description}}</div>
@@ -38,19 +33,9 @@
 
                                         {% for attatchment in Lecture.attatchments%}
                                         <div class="attatchment">
-                                                {% if attatchment.embed_type=="youtube"%}
+<!--
 
-
-                                                {% elif attatchment.embed_type=="gdrive"%}
-
-
-                                                {% elif attatchment.embed_type=="image"%}
-
-
-                                                {% else %}
-
-
-                                                {% endif% }
+-->
                                         </div>
                                         {% endfor %}
                                 </div>
