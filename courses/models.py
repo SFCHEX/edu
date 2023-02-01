@@ -29,8 +29,8 @@ class Lecture(models.Model):
     attatchments=models.ForeignKey(attatchment,on_delete=models.CASCADE)
 
 class Topic(models.Model):
-    Name=models.CharField(max_length=255)
-    Description=models.TextField()
+    title=models.CharField(max_length=255)
+    description=models.TextField()
     attachments=models.ForeignKey(Lecture,on_delete=models.CASCADE)
 
  
