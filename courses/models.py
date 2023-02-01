@@ -41,10 +41,10 @@ class CourseContent(models.Model):
 class Course(models.Model):
     Name=models.CharField(max_length=255)
     Banner=models.CharField(max_length=255)
-    Institution=models.ForeignKey(University, on_delete=models.PROTECT)
+    Institution=models.ForeignKey(University,blank=True, null=True, on_delete=models.PROTECT)
     creator= models.ForeignKey(User, on_delete=models.PROTECT)
     Description=models.TextField()
     date_added=models.DateField()
-    Content= models.ForeignKey(CourseContent, on_delete=models.CASCADE)
+    Content= models.ForeignKey(CourseContent, blank=True, null=True,on_delete=models.CASCADE)
 
 

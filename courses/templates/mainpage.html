@@ -9,57 +9,24 @@
 
 <div class="courses">
 
-<div class="course-card">
-        <span class="course-banner">
-                
-        </span>
+{% for Course in Courses %}
+<a href="{% url 'courses:course' Course.id%}">
+        <div class="course-card">
 
-        <div class="course-details">
-                <div class="course-name">Physics</div>
-                <div class="course-institution">Zewail city</div>
-                <div class="course-description">this course covers some things</div>
+                <span class="course-banner">
+                        
+                </span>
+        
+                <div class="course-details">
+                        <div class="course-name">{{Course.Name}}</div>
+                        <div class="course-date">{{Course.date_added}}</div>
+                        <div class="course-institution">{{Course.Institution.Name}}</div>
+                        <div class="course-description">{{Course.Description}}</div>
+                </div>
         </div>
-</div>
+</a>
+{% endfor %}
 
-<div class="course-card">
-        <span class="course-banner">
-                
-        </span>
-
-        <div class="course-details">
-                <div class="course-name">Physics</div>
-                <div class="course-institution">Zewail city</div>
-                <div class="course-description">this course covers some things</div>
-        </div>
-</div>
-
-<div class="course-card">
-        <span class="course-banner">
-                
-        </span>
-
-        <div class="course-details">
-                <div class="course-name">Physics</div>
-                <div class="course-institution">Zewail city</div>
-                <div class="course-description">this course covers some things</div>
-        </div>
-</div>
-
-<div class="course-card">
-        <span class="course-banner">
-                
-        </span>
-
-        <div class="course-details">
-                <div class="course-name">Physics</div>
-                <div class="course-institution">Zewail city</div>
-                <div class="course-description">this course covers some things</div>
-        </div>
-</div>
-
-
-
-</div>
 <footer>
 
 </footer>
