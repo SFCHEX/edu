@@ -1,24 +1,39 @@
 
 
 
+.courses{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
 
+}
 
 .course-card{
-    padding: 70px 15px 15px 15px;
+    padding: 100px 30px 30px 30px;
     border: 1px solid #dedede;
     border-radius: 4px;
-    margin: 25px 0;
+    margin: 20px  15px;
     position: relative;
-    min-height: 400px;
-    max-width: 300px;
+    min-height: 300px;
+    min-width: 250px;
     text-align: center;
+
     
 }
+
 
 .course-name{
     font-size: 1.5em;
     font-weight: bold;
+    color:#7496b5;
 }
+
+.course-institution{
+    font-size: 1.1em;
+    font-weight: bold;
+    color:#575757;
+}
+
 
 
 
