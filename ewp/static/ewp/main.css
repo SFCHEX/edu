@@ -1,3 +1,9 @@
+:root {
+  --body-bg: #6495ed;
+  --secondary-accent: #faf0e6;
+}
+
+
 @page {
     margin: 10px;
 }
@@ -364,3 +370,8 @@ div.blockquote {
     text-align: left;
     font-size: 0.9em;
 }
+
+
+
+
+

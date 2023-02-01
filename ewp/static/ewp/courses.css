@@ -1,0 +1,26 @@
+
+
+
+
+
+.course-card{
+    padding: 70px 15px 15px 15px;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    margin: 25px 0;
+    position: relative;
+    min-height: 400px;
+    max-width: 300px;
+    text-align: center;
+    
+}
+
+.course-name{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+
+
+
