@@ -2,8 +2,53 @@
 {%load static%}
 {%block content%}
 
+<link rel="stylesheet" href="{%static 'ewp/courses.css' %}">
 
-<h1 id="sample-markdown">things</h1>
+
+<div class="course-info">
+                <span class="course-banner">
+                        
+                </span>
+        
+                <div class="course-details">
+                        <div class="course-name">{{Course.Name}}</div>
+                        <div class="course-date">{{Course.date_added}}</div>
+                        <div class="course-institution">{{Course.Institution.Name}}</div>
+                        <div class="course-description">{{Course.Description}}</div>
+                </div>
+</div>
+
+
+
+
+{% for Topic in Course.Content.all %}
+        <div class="topic-card">
+                        <div class="topic-name">{{Topic.Name}}</div>
+                        <div class="topic-description">{{Topic.Description}}</div>
+
+                        {% for Lecture in Topic.attatchments%}
+                                <div class="lecture-card">
+                                        <div class="lecture-name">{{Lecture.Name}}</div>
+                                        <div class="lecture-description">{{Lecture.Description}}</div>
+
+                                        {% for attatchment in Lecture.attatchments%}
+                                        <div class="attatchment">
+<!--
+
+-->
+                                        </div>
+                                        {% endfor %}
+                                </div>
+                        {% endfor %}
+
+        </div>
+{% endfor %}
+
+<footer>
+
+</footer>
+
+
 
 
 
