@@ -26,17 +26,12 @@ class attatchment(models.Model):
 class Lecture(models.Model):
     Name=models.CharField(max_length=255)
     Description=models.TextField()
-    attatchments=models.ForeignKey(attatchment,on_delete=models.CASCADE)
+    attatchments=models.ManyToManyField(attatchment,blank=True)
 
 class Topic(models.Model):
     Name=models.CharField(max_length=255)
     Description=models.TextField()
-    attachments=models.ForeignKey(Lecture,on_delete=models.CASCADE)
-
- 
-class CourseContent(models.Model):
-    topics=models.ForeignKey(Topic,on_delete=models.CASCADE)
-
+    Lectures=models.ManyToManyField(Lecture,blank=True)
 
 class Course(models.Model):
     Name=models.CharField(max_length=255)
@@ -45,6 +40,6 @@ class Course(models.Model):
     creator= models.ForeignKey(User, on_delete=models.PROTECT)
     Description=models.TextField()
     date_added=models.DateField()
-    Content= models.ForeignKey(CourseContent, blank=True, null=True,on_delete=models.CASCADE)
+    Content= models.ManyToManyField(Topic,blank=True)
 
 

@@ -64,6 +64,32 @@ a.card-link:active {
 }
 
 
+.course-info{
+
+    padding: 30px 30px 30px 30px;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    margin: 20px  15px;
+    position: relative;
+    width: 100%;
+    text-align: left;
+
+
+}
+
+
+.topic-card{
+    padding: 30px 30px 30px 30px;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    margin: 20px  15px;
+    position: relative;
+    width: 100%;
+    text-align: left;
+
+
+}
+
 
 
 
