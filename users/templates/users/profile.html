@@ -1,4 +1,21 @@
 {%extends "ewp/base.html"%}
+{% load crispy_forms_tags %}
 {%block content%}
-    <h1>Hi {{ user.username }}</h1>
+            <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile Info</legend>
+                {{ u_form |crispy }}
+                {{ p_form |crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Save</button>
+            </div>
+        </form>
+        <h5>Course name</h5>
+        <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <br>
+        <br>
 {%endblock content%}
