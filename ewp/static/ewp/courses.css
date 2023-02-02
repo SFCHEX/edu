@@ -14,7 +14,7 @@
     padding: 100px 30px 30px 30px;
     border: 1px solid #dedede;
     border-radius: 4px;
-    margin: 20px  15px;
+    margin: 50px  8px;
     position: relative;
     height: 300px;
     width: 250px;
@@ -66,19 +66,37 @@ a.card-link:hover {
 a.card-link:active {
   text-decoration: none;
 }
-
-
-.intro{
-    padding: 30px 30px 30px 30px;
-    border: 1px solid #dedede;
-    border-radius: 4px;
-    margin: 0px  15px;
+#explore{
+    padding: 20px;
+    margin: 0px  0px;
     position: relative;
     width: 100%;
     text-align: left;
+    background-color:#c2dcf2;
+    color:white;
+
+
 }
 
+#intro{
+    padding: 50px;
+    margin: 0px  0px;
+    position: relative;
+    width: 100%;
+    text-align: left;
+        background-size: 11px 11px;
+    background-image: repeating-linear-gradient(45deg, rgb(222, 224, 255) 0px, rgb(222, 224, 255) 1.1px, rgb(240, 248, 255) 0px, rgb(240, 248, 255) 50%);
+}
 
+#bodytext{
+    font-size: 1.2em;
+}
+#title-text{
+
+    color:#7496b5;
+    font-size: 1.7em;
+    padding-bottom:20px;
+}
 .course-info{
 
     padding: 30px 30px 30px 30px;
@@ -88,6 +106,9 @@ a.card-link:active {
     position: relative;
     width: 100%;
     text-align: left;
+    background-color:#edf7ff;
+
+
 
 
 }
