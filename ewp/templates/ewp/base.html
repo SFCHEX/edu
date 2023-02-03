@@ -44,6 +44,9 @@
     </nav>
       {%block head%}
       {%endblock%}
+    <div class="top-level">
+      {%block top-level-body%}
+      {%endblock%}
     <div class="container">
       {% if messages %}
         {% for message in messages %}
@@ -54,6 +57,7 @@
       {%endif%}
       {%block content%}
       {%endblock%}
+      </div>
     </div>
 
     <!-- Optional JavaScript -->
