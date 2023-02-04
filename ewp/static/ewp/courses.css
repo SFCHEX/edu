@@ -150,7 +150,7 @@ a.card-link:active {
     padding-right:15px;
     margin-top:auto;
     margin-bottom:auto;
-    width:20%;
+    width:100%;
     overflow-wrap: break-word;
 }
 
@@ -171,8 +171,7 @@ a.card-link:active {
     text-align: left;
     display: flex;
     flex-direction: row;
-         
-    background-color:rgb(237,247,255,0.9);
+    border: 1px solid #dedede;
 }
 
 .lecture-card{

@@ -23,4 +23,13 @@ def course(request, course_id):
     return render(request, 'course.html', context)
 
 
+def topic(request, topic_id):
+    try:
+        Sel_Course= Topic.objects.get(id=topic_id)
+        context = {'Course': Sel_Course}
+    except Course.DoesNotExist:
+        raise Http404("No Such Course")
+    return render(request, 'course.html', context)
+
+
 
