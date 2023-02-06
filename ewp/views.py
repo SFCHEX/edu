@@ -1,7 +1,5 @@
-from django.shortcuts import render
-
-# Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from .forms import *
 
 # Create your views here.
 from django.http import HttpResponse
@@ -26,6 +24,47 @@ def login(request):
     return render(request, 'ewp/login.html')
 
 
+
+def create_course(request):
+    if request.method == 'POST':
+        form = CourseForm(request.POST)
+        if form.is_valid():
+            form.instance.creator = request.user
+            form.save()
+            course_id = form.instance.id
+            return redirect('topic-create',course_id) 
+    else: 
+        form = CourseForm()
+    context = {'form':form}
+    
+    return render(request, 'ewp/create_course.html',context)
+
+
+def create_topic(request,course_id):
+    if request.method == 'POST':
+        course = Course.objects.get(id = course_id)
+        form = TopicForm(request.POST)
+        if form.is_valid():
+            form.save()
+            topic_id = form.instance.id
+            topic = Topic.objects.get(id=topic_id)
+            course.Content.add(topic)
+            return HttpResponse('<h1>Hi</h1>')
+    else:
+        form = TopicForm()
+    context = {'form': form}
+    context['Name']='Topic Name'
+    return render(request, 'ewp/create_topic.html', context)
+
+
+
+
+
+
+
+
+
+"""
 class CourseListView(ListView):
     model = Course
     template_name = 'ewp/archive.html'  # <app>/<model>_<viewtype>.html
@@ -64,3 +103,5 @@ class CourseDeletView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == course.creator:
             return True
         return False
+
+"""

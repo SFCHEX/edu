@@ -39,7 +39,7 @@ class Course(models.Model):
     Institution=models.ForeignKey(University,blank=True, null=True, on_delete=models.PROTECT)
     creator= models.ForeignKey(User, on_delete=models.PROTECT)
     Description=models.TextField()
-    date_added=models.DateField()
+    date_added=models.DateField(auto_now=True)
     Content= models.ManyToManyField(Topic,blank=True)
 
 

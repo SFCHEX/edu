@@ -13,8 +13,13 @@ class CourseForm(forms.ModelForm):
 
 class TopicForm(forms.ModelForm):
     class Meta:
-        model = Course 
-        exclude =[]
+        model = Topic 
+        exclude =['Lectures']
+        labels ={
+            'Name':'',
+        }
+
+
 
 
 class LectureForm(forms.ModelForm):
