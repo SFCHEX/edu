@@ -1,9 +1,7 @@
 from django import forms
 from courses.models import *
-from django.forms.models import (
-    inlineformset_factory,
-    modelformset_factory,
-    modelform_factory
+from django.forms import (
+    Textarea
 )
 
 class CourseForm(forms.ModelForm):
@@ -15,9 +13,6 @@ class TopicForm(forms.ModelForm):
     class Meta:
         model = Topic 
         exclude =['Lectures']
-        labels ={
-            'Name':'',
-        }
 
 
 

@@ -1,18 +1,15 @@
 {%extends "ewp/base.html"%}
-{% load crispy_forms_tags %}
+
 {%block content%}
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Create Lectures</legend>
-                {{ form |crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Next</button>
-            </div>
-        </form>
-        </div>
-    </div>
-    
+
+  <button hx-get="{% url 'topic-form' %}" hx-swap="beforeend" hx-target="#topicforms">
+    Add Topic
+  </button>
+
+
+  <div id="topicforms">
+    {% for topic in topics %}
+        {% include 'partials/topic_detail.html' %}
+    {%endfor%}
+  </div>
 {%endblock content%}

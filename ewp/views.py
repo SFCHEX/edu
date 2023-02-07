@@ -20,8 +20,6 @@ def index(request):
 def home(request):
     return render(request, 'ewp/home.html')
 
-def login(request):
-    return render(request, 'ewp/login.html')
 
 
 
@@ -32,7 +30,7 @@ def create_course(request):
             form.instance.creator = request.user
             form.save()
             course_id = form.instance.id
-            return redirect('topic-create',course_id) 
+            return redirect('create-topic',course_id) 
     else: 
         form = CourseForm()
     context = {'form':form}
@@ -41,67 +39,56 @@ def create_course(request):
 
 
 def create_topic(request,course_id):
+    course = Course.objects.get(id=course_id)
+    topics = course.Content.all
     if request.method == 'POST':
-        course = Course.objects.get(id = course_id)
+        
         form = TopicForm(request.POST)
         if form.is_valid():
-            form.save()
-            topic_id = form.instance.id
-            topic = Topic.objects.get(id=topic_id)
+            topic = form.save()
             course.Content.add(topic)
-            return HttpResponse('<h1>Hi</h1>')
-    else:
-        form = TopicForm()
-    context = {'form': form}
-    context['Name']='Topic Name'
+            return redirect('topic-detail',topic.pk)
+        else:
+            context = {'form': TopicForm()}
+            return render(request, 'partials/topic_form.html', context)
+
+    context = {'form': TopicForm(),
+               'topics': topics
+               }
     return render(request, 'ewp/create_topic.html', context)
 
 
+def create_topic_form(request):
+    context = {
+        'form':TopicForm()
+    }
+    return render(request,'partials/topic_form.html',context)
 
 
 
+def detail_topic(request,pk):
+    topic =Topic.objects.get(pk=pk)
+    context = {
+        'topic': topic
+    }
+    return render(request,'partials/topic_detail.html',context)
 
 
+def delete_topic(request, pk):
+    topic = Topic.objects.get(pk=pk)
+    topic.delete()
+    return HttpResponse('')
 
 
-"""
-class CourseListView(ListView):
-    model = Course
-    template_name = 'ewp/archive.html'  # <app>/<model>_<viewtype>.html
-    context_object_name = 'Courses'
-    ordering = ['-date_posted']
-
-class CourseCreateView(LoginRequiredMixin,CreateView):
-    model = Course
-    fields = ['Name','Description','Content']
-
-    def form_valid(self,form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-    
-
-class CourseUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    model = Course
-    fields = ['Name','creator','Description','date_added','Content']
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-    
-    def test_func(self):
-        course= self.get_object()
-        if self.request.user == course.creator:
-            return True
-        return False
-
-
-class CourseDeletView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    model = Course
-
-    def test_func(self):
-        course = self.get_object()
-        if self.request.user == course.creator:
-            return True
-        return False
-
-"""
+def update_topic(request,pk):
+    topic = Topic.objects.get(pk=pk)
+    form = TopicForm(request.POST or None ,instance=topic)
+    if request.method == 'POST':
+        if form.is_valid():
+            topic = form.save()
+            return redirect('topic-detail', topic.pk)
+    context = {
+        'form': form,
+        'topic':topic
+    }
+    return render(request, 'partials/topic_form.html', context)
