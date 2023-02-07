@@ -10,7 +10,7 @@ from django.views.generic import (
     DeleteView
 )
 from courses.models import Course
-from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -22,7 +22,7 @@ def home(request):
 
 
 
-
+@login_required(login_url="/login/")
 def create_course(request):
     if request.method == 'POST':
         form = CourseForm(request.POST)

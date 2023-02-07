@@ -13,6 +13,9 @@ class TopicForm(forms.ModelForm):
     class Meta:
         model = Topic 
         exclude =['Lectures']
+        widgets={
+            'Description': Textarea(attrs={'rows': 1, 'cols': 5})
+        }
 
 
 

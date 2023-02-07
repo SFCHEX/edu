@@ -1,6 +1,8 @@
 
 <div hx-target="this" hx-swap="outerHTML">
-    <h3>{{topic.Name}}</h3>
+    <h3 class="pt-4">{{topic.Name}}</h3>
+    <a href="#" style="color: black">Add Lecture</a>
+    <br>
     <button hx-get="{% url 'topic-update' topic.pk %}">Update</button>
     <button  hx-post="{% url 'topic-delete' topic.pk %}">Delete</button>
 

@@ -371,5 +371,9 @@ div.blockquote {
     font-size: 0.9em;
 }
 
+a:hover {
+    color: blue;
+}
+
 
 
